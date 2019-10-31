@@ -333,7 +333,7 @@ export function isZeroVector(a, epsilon) {
 
 /**
  * Flatten a collection of vectors to a single array.
- * @param {Number[][]} vectors Array of vectors with length n.
+ * @param {Number[][]} vectors Array of vectors
  * @return {Number[]} Single array with all values
  *
  * @example
@@ -353,7 +353,7 @@ export function flatten(vectors) {
 /**
  * Reshapes an array of values to a collection of vectors with given dimensions.
  * @param {Number[]} array Single array with all values
- * @return {Number[][]} Array of vectors with given dimensions.
+ * @return {Number[][]} Array of vectors with given dimensions
  *
  * @example
  * // Returns [ [1, 2, 3], [4, 5, 6] ]
