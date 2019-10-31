@@ -1,9 +1,9 @@
 # Videx linear algebra
 
-A library with math functions used by Videx.
+A library with linear algebra used by Videx.
 
 - [GitHub Repository](https://github.com/equinor/videx-linear-algebra)
-- [Documentation](https://equinor.github.io/videx-math)
+- [Documentation](https://equinor.github.io/videx-linear-algebra)
 
 ## Installation
 ```js
