@@ -247,7 +247,7 @@ export function round(a, digits, target) {
 }
 
 /**
- * Test if all elements of a vector is zero.
+ * Returns true if all elements of a vector is zero, otherwise returns false.
  * @param {Number[]} a Target vector
  * @param {Number} [epsilon=0] Accepted deviation from 0.00 (Default: 0)
  * @returns {Boolean} Is target zero vector?
