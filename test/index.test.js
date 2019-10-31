@@ -17,6 +17,8 @@ import {
   mix,
   round,
   isZeroVector,
+  flatten,
+  reshape,
 } from '../src/index';
 
 test('copy', () => {
@@ -163,4 +165,13 @@ test('round', () => {
 test('isZeroVector', () => {
   expect(isZeroVector([0, 0.000023, 0], 0.001)).toBeTruthy();
   expect(isZeroVector([0, 0.000023, 0], 0.00001)).toBeFalsy();
+});
+
+test('flatten', () => {
+  expect(flatten([[1, 2], [3, 4], [5, 6]])).toEqual([1, 2, 3, 4, 5, 6]);
+});
+
+test('reshape', () => {
+  expect(reshape([1, 2, 3, 4, 5, 6], 2)).toEqual([[1, 2], [3, 4], [5, 6]]);
+  expect(reshape([1, 2, 3, 4, 5, 6], 3)).toEqual([[1, 2, 3], [4, 5, 6]]);
 });

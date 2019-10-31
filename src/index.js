@@ -330,3 +330,43 @@ export function isZeroVector(a, epsilon) {
   }
   return true;
 }
+
+/**
+ * Flatten a collection of vectors to a single array.
+ * @param {Number[][]} vectors Array of vectors with length n.
+ * @return {Number[]} Single array with all values
+ *
+ * @example
+ * // Returns [1, 2, 3, 4, 5, 6]
+ * flatten([ [1, 2], [3, 4], [5, 6] ]);
+ */
+export function flatten(vectors) {
+  const output = [];
+  for (let m = 0; m < vectors.length; m++) {
+    for (let n = 0; n < vectors[m].length; n++) {
+      output.push(vectors[m][n]);
+    }
+  }
+  return output;
+}
+
+/**
+ * Reshapes an array of values to a collection of vectors with given dimensions.
+ * @param {Number[]} array Single array with all values
+ * @return {Number[][]} Array of vectors with given dimensions.
+ *
+ * @example
+ * // Returns [ [1, 2, 3], [4, 5, 6] ]
+ * reshape([1, 2, 3, 4, 5, 6], 3);
+ */
+export function reshape(array, dimensions) {
+  const output = [];
+  for (let i = 0; i < array.length; i += dimensions) {
+    const vector = new Array(dimensions);
+    for (let n = 0; n < dimensions; n++) {
+      vector[n] = array[i + n];
+    }
+    output.push(vector);
+  }
+  return output;
+}

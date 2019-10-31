@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#add">add</a></li><li><a href="global.html#addAll">addAll</a></li><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#copy">copy</a></li><li><a href="global.html#dir">dir</a></li><li><a href="global.html#dist">dist</a></li><li><a href="global.html#dot">dot</a></li><li><a href="global.html#isZeroVector">isZeroVector</a></li><li><a href="global.html#magnitude">magnitude</a></li><li><a href="global.html#mix">mix</a></li><li><a href="global.html#normalize">normalize</a></li><li><a href="global.html#round">round</a></li><li><a href="global.html#scale">scale</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#sub">sub</a></li><li><a href="global.html#subAll">subAll</a></li><li><a href="global.html#sumsqr">sumsqr</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#add">add</a></li><li><a href="global.html#addAll">addAll</a></li><li><a href="global.html#clamp">clamp</a></li><li><a href="global.html#copy">copy</a></li><li><a href="global.html#dir">dir</a></li><li><a href="global.html#dist">dist</a></li><li><a href="global.html#dot">dot</a></li><li><a href="global.html#flatten">flatten</a></li><li><a href="global.html#isZeroVector">isZeroVector</a></li><li><a href="global.html#magnitude">magnitude</a></li><li><a href="global.html#mix">mix</a></li><li><a href="global.html#normalize">normalize</a></li><li><a href="global.html#reshape">reshape</a></li><li><a href="global.html#round">round</a></li><li><a href="global.html#scale">scale</a></li><li><a href="global.html#step">step</a></li><li><a href="global.html#sub">sub</a></li><li><a href="global.html#subAll">subAll</a></li><li><a href="global.html#sumsqr">sumsqr</a></li></ul>
 </nav>
 
 <div id="main">
@@ -1713,6 +1713,170 @@ dist([1, 2], [3, 4]);</code></pre>
 
     
 
+    <h4 class="name" id="flatten"><span class="type-signature"></span>flatten<span class="signature">(vectors)</span><span class="type-signature"> &rarr; {Array.&lt;Number>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line343">line 343</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Flatten a collection of vectors to a single array.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Returns [1, 2, 3, 4, 5, 6]
+flatten([ [1, 2], [3, 4], [5, 6] ]);</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>vectors</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Array.&lt;Number>></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Array of vectors with length n.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Single array with all values</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
     <h4 class="name" id="isZeroVector"><span class="type-signature"></span>isZeroVector<span class="signature">(a, epsilon<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
@@ -2590,6 +2754,170 @@ magnitude([0, 10, 0], new Array(3));</code></pre>
     <dd>
         
 <span class="param-type">Array.&lt;Number></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="reshape"><span class="type-signature"></span>reshape<span class="signature">(array)</span><span class="type-signature"> &rarr; {Array.&lt;Array.&lt;Number>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line362">line 362</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Reshapes an array of values to a collection of vectors with given dimensions.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Returns [ [1, 2, 3], [4, 5, 6] ]
+reshape([1, 2, 3, 4, 5, 6], 3);</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>array</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Number></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Single array with all values</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Array of vectors with given dimensions.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;Array.&lt;Number>></span>
 
 
     </dd>
@@ -4061,7 +4389,7 @@ sumsqr([1, 2, 3]);</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Oct 31 2019 20:47:19 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Thu Oct 31 2019 21:22:53 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
