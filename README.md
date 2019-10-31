@@ -3,7 +3,7 @@
 A library with linear algebra used by Videx.
 
 - [GitHub Repository](https://github.com/equinor/videx-linear-algebra)
-- [Documentation](https://equinor.github.io/videx-linear-algebra)
+- [Documentation](https://equinor.github.io/videx-linear-algebra/)
 
 ## Installation
 ```js
