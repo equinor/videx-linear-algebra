@@ -27,24 +27,29 @@ Where X.X.X is desired version number.
 <table style="width:auto;">
   <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#add">add</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#addAll">addAll</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#clamp">clamp</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#copy">copy</a></td>
+  </tr>
+  <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#dir">dir</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#dist">dist</a></td>
-  </tr>
-  <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#dot">dot</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#isZeroVector">isZeroVector</a></td>
+  </tr>
+  <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#magnitude">magnitude</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#mix">mix</a></td>
-  </tr>
-  <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#normalize">normalize</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#round">round</a></td>
-    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#scale">scale</a></td>
-    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#step">step</a></td>
   </tr>
   <tr>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#scale">scale</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#step">step</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#sub">sub</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#subAll">subAll</a></td>
+  </tr>
+  <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/global.html#sumsqr">sumsqr</a></td>
   </tr>
 </table>

@@ -1,8 +1,26 @@
 import {
   clamp as clampNum,
   step as stepNum,
-  lerp as lerpNum,
+  lerp,
 } from '@equinor/videx-math';
+
+/**
+ * Copy the values of one vector to another without creating a new object.
+ * @param {Number[]} source Source vector
+ * @param {Number[]} target Target vector
+ * @returns {Number[]} Target vector as a copy of source
+ *
+ * @example
+ * // Returns [3, 4]
+ * copy([3, 4], [2, 2]);
+ */
+export function copy(source, target) {
+  for (let i = 0; i < source.length; i++) {
+    target[i] = source[i];
+  }
+  return target;
+}
+
 
 /**
  * a + b
@@ -27,6 +45,30 @@ export function add(a, b, target) {
 }
 
 /**
+ * v1 + ... + vM
+ *
+ * Component-wise addition of M n-dimensional vectors. Target is
+ * used to store the results.
+ * @param {Number[][]} vectors Array of vectors with length n.
+ * @param {Number[]} [target=[vectors]] Target for storing the results (Default: vectors[0])
+ * @return {Number[]} Resulting vector
+ *
+ * @example
+ * // Returns [9, 12]
+ * addAll([ [1, 2], [3, 4], [5, 6] ], new Array(2));
+ */
+export function addAll(vectors, target) {
+  if (target) copy(vectors[0], target);
+  else [target] = vectors;
+  for (let m = 1; m < vectors.length; m++) {
+    for (let n = 0; n < target.length; n++) {
+      target[n] += vectors[m][n];
+    }
+  }
+  return target;
+}
+
+/**
  * a - b
  *
  * Component-wise subtraction of two n-dimensional vectors.
@@ -44,6 +86,31 @@ export function sub(a, b, target) {
   if (!target) target = a;
   for (let i = 0; i < a.length; i++) {
     target[i] = a[i] - b[i];
+  }
+  return target;
+}
+
+/**
+ * v1 - ... - vM
+ *
+ * Component-wise subtraction of M n-dimensional vectors from a. Target is
+ * used to store the results.
+ * @param {Number[]} a Vector with length n.
+ * @param {Number[][]} vectors Array of vectors with length n.
+ * @param {Number[]} [target=a] Target for storing the results (Default: a)
+ * @return {Number[]} Resulting vector
+ *
+ * @example
+ * // Returns [7, 4]
+ * subAll([9, 9], [ [2, 3], [0, 2] ], new Array(2));
+ */
+export function subAll(a, vectors, target) {
+  if (target) copy(a, target);
+  else target = a;
+  for (let m = 0; m < vectors.length; m++) {
+    for (let n = 0; n < target.length; n++) {
+      target[n] -= vectors[m][n];
+    }
   }
   return target;
 }
@@ -220,7 +287,7 @@ export function step(edges, x, target) {
 export function mix(a, b, t, target) {
   if (!target) target = a;
   for (let i = 0; i < a.length; i++) {
-    target[i] = lerpNum(a[i], b[i], t);
+    target[i] = lerp(a[i], b[i], t);
   }
   return target;
 }

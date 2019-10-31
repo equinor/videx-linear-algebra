@@ -1,7 +1,10 @@
 /* eslint-disable no-undef */
 import {
+  copy,
   add,
+  addAll,
   sub,
+  subAll,
   scale,
   sumsqr,
   magnitude,
@@ -16,6 +19,14 @@ import {
   isZeroVector,
 } from '../src/index';
 
+test('copy', () => {
+  const a = [3, 4];
+  const b = [2, 2];
+  copy(a, b);
+  expect(a).toEqual([3, 4]);
+  expect(b).toEqual([3, 4]);
+});
+
 test('add', () => {
   expect(add([1, 2], [3, 4], new Array(2))).toEqual([4, 6]);
   expect(add([1, 2, 3], [3, 4, 5], new Array(3))).toEqual([4, 6, 8]);
@@ -26,6 +37,20 @@ test('add', () => {
   expect(a).toEqual([4, 6]);
 });
 
+test('addAll', () => {
+  const a = [
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ];
+  expect(addAll(a, new Array(2))).toEqual([9, 12]);
+
+  // Mutate
+  const first = a[0];
+  addAll(a);
+  expect(first).toEqual([9, 12]);
+});
+
 test('sub', () => {
   expect(sub([4, 3], [2, 1], new Array(2))).toEqual([2, 2]);
   expect(sub([6, 5, 4], [3, 2, 1], new Array(3))).toEqual([3, 3, 3]);
@@ -34,6 +59,19 @@ test('sub', () => {
   const a = [4, 3];
   sub(a, [2, 1]);
   expect(a).toEqual([2, 2]);
+});
+
+test('subAll', () => {
+  const a = [9, 9];
+  const vectors = [
+    [2, 3],
+    [0, 2],
+  ];
+  expect(subAll(a, vectors, new Array(2))).toEqual([7, 4]);
+
+  // Mutate
+  subAll(a, vectors);
+  expect(a).toEqual([7, 4]);
 });
 
 test('scale', () => {
