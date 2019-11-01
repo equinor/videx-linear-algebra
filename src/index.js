@@ -1,7 +1,6 @@
 import {
   clamp as clampNum,
   step as stepNum,
-  lerp,
 } from '@equinor/videx-math';
 
 /**
@@ -326,8 +325,10 @@ export function step(edges, x, target) {
  */
 export function mix(a, b, t, target) {
   if (!target) target = a;
+  const n = clamp(t, 0, 1);
+  const m = 1 - n;
   for (let i = 0; i < a.length; i++) {
-    target[i] = lerp(a[i], b[i], t);
+    target[i] = a[i] * m + b[i] * n;
   }
   return target;
 }
