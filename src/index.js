@@ -235,7 +235,7 @@ export function dot(a, b) {
  *
  * Find cross product of vectors. Only defined for 3d vectors.
  * @param {Number[]} a Left operand (3d vector)
- * @param {Number[]} b Rightoperand (3d vector)
+ * @param {Number[]} b Right operand (3d vector)
  * @param {Number[]} [target=a] Target for storing the results (Default: a)
  * @return {Number[]} Cross product of vectors
  *
