@@ -231,6 +231,46 @@ export function dot(a, b) {
 }
 
 /**
+ * a × b
+ *
+ * Find cross product of vectors. Only defined for 3d vectors.
+ * @param {Number[]} a Left operand (3d vector)
+ * @param {Number[]} b Rightoperand (3d vector)
+ * @param {Number[]} [target=a] Target for storing the results (Default: a)
+ * @return {Number[]} Cross product of vectors
+ *
+ * @example
+ * // Returns [0, 0, 1]
+ * cross([1, 0, 0], [0, 1, 0]);
+ */
+export function cross(a, b, target) {
+  if (!target) target = a;
+  const y = (a[2] * b[0]) - (a[0] * b[2]);
+  const z = (a[0] * b[1]) - (a[1] * b[0]);
+  target[0] = (a[1] * b[2]) - (a[2] * b[1]);
+  target[1] = y;
+  target[2] = z;
+  return target;
+}
+
+/**
+ * a ∙ b × c
+ *
+ * Find triple product between three vectors. Only defined for 3d vectors.
+ * @param {Number[]} a Left operand for dot product (3d vector)
+ * @param {Number[]} b Left operand for cross product (3d vector)
+ * @param {Number[]} c Right operand for cross product (3d vector)
+ * @return {Number} Triple product of vectors
+ *
+ * @example
+ * // Returns 1
+ * triple([1, 0, 0], [0, 1, 0], [0, 0, 1]);
+ */
+export function triple(a, b, c) {
+  return dot(a, cross(b, c));
+}
+
+/**
  * Clamp all values of a vector
  * @param {Number[]} a Values to clamp
  * @param {Number} [min=0] Minimum value (Default: 0)

@@ -12,6 +12,8 @@ import {
   dir,
   dist,
   dot,
+  cross,
+  triple,
   clamp,
   step,
   mix,
@@ -121,6 +123,19 @@ test('dist', () => {
 
 test('dot', () => {
   expect(dot([1, 2], [3, 4])).toEqual(11);
+});
+
+test('cross', () => {
+  expect(cross([1, 0, 0], [0, 1, 0], new Array(3))).toEqual([0, 0, 1]);
+
+  // Mutate
+  const a = [1, 0, 0];
+  cross(a, [0, 1, 0]);
+  expect(a).toEqual([0, 0, 1]);
+});
+
+test('triple', () => {
+  expect(triple([1, 0, 0], [0, 1, 0], [0, 0, 1])).toEqual(1);
 });
 
 test('clamp', () => {
