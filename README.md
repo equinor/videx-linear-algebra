@@ -27,7 +27,7 @@ Where X.X.X is desired version number.
 <table style="width:auto;">
   <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#add">add</a></td>
-    <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#addAll">addAll</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#addall">addAll</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#clamp">clamp</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#copy">copy</a></td>
   </tr>
@@ -39,7 +39,7 @@ Where X.X.X is desired version number.
   </tr>
   <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#flatten">flatten</a></td>
-    <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#isZeroVector">isZeroVector</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#iszerovector">isZeroVector</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#magnitude">magnitude</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#mix">mix</a></td>
   </tr>
@@ -52,7 +52,7 @@ Where X.X.X is desired version number.
   <tr>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#step">step</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#sub">sub</a></td>
-    <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#subAll">subAll</a></td>
+    <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#suball">subAll</a></td>
     <td><a href="https://equinor.github.io/videx-linear-algebra/modules/_index_.html#sumsqr">sumsqr</a></td>
   </tr>
   <tr>
