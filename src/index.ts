@@ -191,7 +191,12 @@ export function dir(a: any, b: any, target: any = a): any {
  * dist([1, 2], [4, 6]); // Returns 5
  */
 export function dist(a: any, b: any): number {
-  return magnitude(sub(b, a));
+  let sq = 0;
+  for (let i = 0; i < a.length; i++) {
+    sq += (b[i] - a[i]) ** 2;
+  }
+  if (sq === 0) return sq;
+  return Math.sqrt(sq);
 }
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-linear-algebra",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A library with linear algebra used by Videx.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
