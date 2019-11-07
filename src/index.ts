@@ -13,7 +13,7 @@ import {
  * // Returns [3, 4]
  * copy([3, 4], [2, 2]);
  */
-export function copy(source, target) {
+export function copy(source: number[], target: number[]): number[] {
   for (let i = 0; i < source.length; i++) {
     target[i] = source[i];
   }
