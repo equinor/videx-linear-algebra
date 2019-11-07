@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@equinor/videx-npm-template</title>
+	<title>@equinor/videx-linear-algebra</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@equinor/videx-npm-template</a>
+					<a href="index.html" class="title">@equinor/videx-linear-algebra</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> @equinor/videx-npm-template</h1>
+			<h1> @equinor/videx-linear-algebra</h1>
 		</div>
 	</div>
 </header>
@@ -64,101 +64,64 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#videx-npm-template" id="videx-npm-template" style="color: inherit; text-decoration: none;">
-					<h1>Videx npm template</h1>
+				<a href="#videx-linear-algebra" id="videx-linear-algebra" style="color: inherit; text-decoration: none;">
+					<h1>Videx linear algebra</h1>
 				</a>
-				<p>Typescript template for npm packages with testing and automatic documentation.</p>
+				<p>A library with linear algebra used by Videx. Functions are designed with performance in mind, where a target vector can be used to avoid creating new objects.</p>
 				<ul>
-					<li><strong>Compiler</strong>: <a href="https://www.npmjs.com/package/typescript">Typescript</a></li>
-					<li><strong>Module bundler</strong>: <a href="https://www.npmjs.com/package/rollup">Rollup</a></li>
-					<li><strong>Testing</strong>: <a href="https://www.npmjs.com/package/jest">Jest</a></li>
-					<li><strong>Documentation</strong>: <a href="https://www.npmjs.com/package/typedoc">TypeDoc</a></li>
-					<li><strong>Code compressor</strong>: <a href="https://www.npmjs.com/package/terser">Terser</a></li>
+					<li><a href="https://github.com/equinor/videx-linear-algebra">GitHub Repository</a></li>
+					<li><a href="https://equinor.github.io/videx-linear-algebra">Documentation</a></li>
 				</ul>
-				<a href="#repository" id="repository" style="color: inherit; text-decoration: none;">
-					<h2>Repository</h2>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
 				</a>
-				<ul>
-					<li><a href="https://github.com/equinor/videx-npm-template">GitHub</a></li>
-				</ul>
-				<a href="#setup-guide" id="setup-guide" style="color: inherit; text-decoration: none;">
-					<h2>Setup guide</h2>
-				</a>
-				<a href="#cloning-repository" id="cloning-repository" style="color: inherit; text-decoration: none;">
-					<h3>Cloning repository</h3>
-				</a>
-				<p>Start by cloning the template repository to desired directory.</p>
-				<pre><code>git <span class="hljs-keyword">clone</span> <span class="hljs-title">https</span>://github.com/equinor/videx-npm-template.git</code></pre>
-				<a href="#modify-packagejson" id="modify-packagejson" style="color: inherit; text-decoration: none;">
-					<h3>Modify package.json</h3>
-				</a>
-				<p>Fields that need to be modified are:</p>
-				<ul>
-					<li><strong>name</strong>: The name of the npm package.</li>
-					<li><strong>description</strong>: The description of the npm package.</li>
-					<li><strong>repository.url</strong>: Should point to the GitHub repository.</li>
-					<li><strong>keywords</strong>: Keywords to make it easier to find the package on npm.</li>
-					<li><strong>author</strong>: Package author. For multiple authors, consider using &#39;<a href="https://docs.npmjs.com/files/package.json#people-fields-author-contributors">contributors</a>&#39;.</li>
-					<li><strong>bugs.url</strong>: Should point to &quot;GitHub repository&quot;/issues.</li>
-					<li><strong>homepage</strong>: Could point to &quot;GitHub repository&quot;#readme.</li>
-				</ul>
-				<a href="#install-dependencies" id="install-dependencies" style="color: inherit; text-decoration: none;">
-					<h3>Install dependencies</h3>
-				</a>
-				<p>Install all dev dependencies defined in package.json using node.</p>
-				<pre><code>npm <span class="hljs-keyword">install</span></code></pre>
+				<pre><code class="language-js">npm install --save @equinor/videx-linear-algebra</code></pre>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h2>Usage</h2>
 				</a>
-				<a href="#creating-package" id="creating-package" style="color: inherit; text-decoration: none;">
-					<h3>Creating package</h3>
-				</a>
-				<p>The entry point for the actual npm package is defined as &#39;src/index.ts&#39;. This can be changed within &#39;rollup.config.js&#39;.
-				Any public variables, functions and classes should be exported within this file.</p>
-				<a href="#document-generation" id="document-generation" style="color: inherit; text-decoration: none;">
-					<h3>Document generation</h3>
-				</a>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> docs</span></code></pre><p>Three part process:</p>
-				<ol>
-					<li>Deletes the docs-folder, if it exists.</li>
-					<li>Automatically generates documentation to a new docs-folder.</li>
-					<li>Copies the images-folder and .nojekyll into docs.</li>
-				</ol>
-				<p>The copying of images makes it possible to refer to local images within the README!</p>
-				<p>The empty .nojekyll file makes it possible to upload html pages starting wth underscore to GitHub pages.</p>
-				<a href="#creating-tests" id="creating-tests" style="color: inherit; text-decoration: none;">
-					<h3>Creating tests</h3>
-				</a>
-				<p>All tests are defined within the test-folder. Jest naming convention is to place tests for SOMESCRIPT.ts in a single file SOMESCRIPT.test.ts.</p>
-				<a href="#testing" id="testing" style="color: inherit; text-decoration: none;">
-					<h3>Testing</h3>
-				</a>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span></span></code></pre><p>Executes all tests defined within the test folder.</p>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> <span class="hljs-built_in">test</span>:watch</span></code></pre><p>Executes all tests, but does not return immediately. Makes it possible to re-run failed tests quickly.</p>
-				<a href="#buildingcompiling" id="buildingcompiling" style="color: inherit; text-decoration: none;">
-					<h3>Building/Compiling</h3>
-				</a>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> build</span></code></pre><p>Compiles the code found within the src-folder. Build is outputted to a new dist-folder.</p>
-				<a href="#publication" id="publication" style="color: inherit; text-decoration: none;">
-					<h3>Publication</h3>
-				</a>
-				<pre><code>npm <span class="hljs-keyword">run</span><span class="bash"> pub</span></code></pre><p>Attemps to publish the package to npm. As part of the publishing process, the source code is re-compiled.</p>
-				<a href="#publish-documentation" id="publish-documentation" style="color: inherit; text-decoration: none;">
-					<h2>Publish documentation</h2>
-				</a>
-				<p>GitHub pages is used to show documentation. To set up GitHub pages, start by navigating to the settings tab within the GitHub repository.</p>
-				<p><img src="images/settings-tab.png" alt="Settings Tab"></p>
-				<p>Scroll down and set GitHub pages source to the docs-folder of the master branch.</p>
-				<p><img src="images/github-pages.png" alt="Settings Tab"></p>
-				<p>Publishing the documentation will produce a link. This link can be included in the README for easy navigation.</p>
-				<p><img src="images/github-pages-published.png" alt="Settings Tab"></p>
-				<p>Sample documentation can be found <a href="https://equinor.github.io/videx-npm-template/">here</a>.</p>
-				<a href="#sample-function" id="sample-function" style="color: inherit; text-decoration: none;">
-					<h2>Sample function</h2>
+				<pre><code class="language-js"><span class="hljs-comment">// ES6</span>
+<span class="hljs-keyword">import</span> { add, scale, ... } <span class="hljs-keyword">from</span> <span class="hljs-string">'@equinor/videx-linear-algebra'</span>;
+
+<span class="hljs-comment">// ObservableHQ</span>
+<span class="hljs-keyword">const</span> someVar = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@equinor/videx-linear-algebra@X.X.X/dist/bundle.umd.js'</span>);
+<span class="hljs-keyword">const</span> add = someVar.add;</code></pre>
+				<p>Where X.X.X is desired version number.</p>
+				<a href="#available-functions" id="available-functions" style="color: inherit; text-decoration: none;">
+					<h2>Available functions</h2>
 				</a>
 				<table style="width:auto;">
 					<tr>
-						<td><a href="https://equinor.github.io/videx-npm-template/modules/_index_.html#hello">hello</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#add">add</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#addAll">addAll</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#clamp">clamp</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#copy">copy</a></td>
+					</tr>
+					<tr>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#cross">cross</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#dir">dir</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#dist">dist</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#dot">dot</a></td>
+					</tr>
+					<tr>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#flatten">flatten</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#isZeroVector">isZeroVector</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#magnitude">magnitude</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#mix">mix</a></td>
+					</tr>
+					<tr>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#normalize">normalize</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#reshape">reshape</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#round">round</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#scale">scale</a></td>
+					</tr>
+					<tr>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#step">step</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#sub">sub</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#subAll">subAll</a></td>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#sumsqr">sumsqr</a></td>
+					</tr>
+					<tr>
+						<td><a href="https://equinor.github.io/videx-linear-algebra/global.html#triple">triple</a></td>
 					</tr>
 				</table>
 				<br/>
