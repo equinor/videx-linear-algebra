@@ -21,7 +21,18 @@ import {
   isZeroVector,
   flatten,
   reshape,
+  VectorLike,
 } from '../src/index';
+
+// import Vector2 from '@equinor/videx-vector2';
+
+const Vector2 = require('@equinor/videx-vector2');
+
+function VectorLikeComparison(a: VectorLike, b: VectorLike) {
+  for(let i = 0; i < a.length; i++) {
+    expect(a[i]).toBe(b[i]);
+  }
+}
 
 test('copy', () => {
   const a = [3, 4];
@@ -34,6 +45,16 @@ test('copy', () => {
 test('add', () => {
   expect(add([1, 2], [3, 4], new Array(2))).toEqual([4, 6]);
   expect(add([1, 2, 3], [3, 4, 5], new Array(3))).toEqual([4, 6, 8]);
+
+  // Vector2
+  VectorLikeComparison(
+    add(
+      new Vector2(1, 2),
+      new Vector2(3, 4),
+      Vector2.zero,
+    ),
+    [4, 6],
+  );
 
   // Mutate
   const a = [1, 2];
@@ -184,6 +205,16 @@ test('isZeroVector', () => {
 
 test('flatten', () => {
   expect(flatten([[1, 2], [3, 4], [5, 6]])).toEqual([1, 2, 3, 4, 5, 6]);
+
+  // Vector2
+  VectorLikeComparison(
+    flatten([
+      new Vector2(1, 2),
+      new Vector2(3, 4),
+      new Vector2(5, 6),
+    ]),
+    [1, 2, 3, 4, 5, 6],
+  );
 });
 
 test('reshape', () => {

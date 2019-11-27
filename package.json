@@ -39,6 +39,7 @@
   },
   "homepage": "https://github.com/equinor/videx-linear-algebra#readme",
   "devDependencies": {
+    "@equinor/videx-vector2": "^1.0.40",
     "@types/jest": "^24.0.21",
     "copyfiles": "^2.1.1",
     "eslint": "^6.6.0",
