@@ -17,8 +17,9 @@ import {
   clamp,
   step,
   mix,
-  round,
+  modify,
   isZeroVector,
+  reverse,
   flatten,
   reshape,
   VectorLike,
@@ -122,6 +123,9 @@ test('magnitude', () => {
 test('normalize', () => {
   expect(normalize([0, 10, 0], new Array(3))).toEqual([0, 1, 0]);
 
+  // Test for zero length
+  expect(normalize([0, 0, 0], new Array(3))).toEqual([0, 0, 0]);
+
   // Mutate
   const a = [0, 10, 0];
   normalize(a);
@@ -188,19 +192,50 @@ test('mix', () => {
   expect(a).toEqual([2, 4]);
 });
 
-test('round', () => {
-  expect(round([2.12, 1.15], 1, new Array(2))).toEqual([2.1, 1.2]);
-  expect(round([Math.PI, Math.E], 2, new Array(2))).toEqual([3.14, 2.72]);
+test('modify', () => {
+  expect(
+    modify([1.12, 1.55], Math.round, new Array(2)),
+  ).toEqual([1, 2]);
+
+  expect(
+    modify(
+      [0.75, 0.1, 0.3],
+      d => 1.0 - d,
+      new Array(3),
+    ),
+  ).toEqual([0.25, 0.9, 0.7]);
+
+  // Using index
+  expect(
+    modify(
+      [0.75, 0.1, 0.3],
+      (d, i) => d + i,
+      new Array(3),
+    ),
+  ).toEqual([0.75, 1.1, 2.3]);
 
   // Mutate
-  const a = [2.12, 1.15];
-  round(a, 1);
-  expect(a).toEqual([2.1, 1.2]);
+  const a = [1.12, 1.55];
+  modify(a, Math.round);
+  expect(a).toEqual([1, 2]);
 });
 
 test('isZeroVector', () => {
   expect(isZeroVector([0, 0.000023, 0], 0.001)).toBeTruthy();
   expect(isZeroVector([0, 0.000023, 0], 0.00001)).toBeFalsy();
+});
+
+test('reverse', () => {
+  expect(reverse([1, 2, 3])).toEqual([3, 2, 1]);
+  expect(reverse([1, 2, 3, 4, 5, 6, 7, 8])).toEqual([8, 7, 6, 5, 4, 3, 2, 1]);
+
+  // Vector2
+  VectorLikeComparison(
+    reverse(
+      new Vector2(1, 2)
+    ),
+    [2, 1],
+  );
 });
 
 test('flatten', () => {

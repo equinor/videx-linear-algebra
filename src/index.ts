@@ -24,9 +24,9 @@ export interface VectorLike {
  * @returns Target vector as a copy of source
  *
  * @example
- * copy([3, 4], [2, 2]); // Returns [3, 4]
+ * copy([3, 4], [2, 2]); // Returns: [3, 4]
  */
-export function copy(source: VectorLike, target: VectorLike): VectorLike {
+export function copy<T extends VectorLike>(source: VectorLike, target: T): T {
   for (let i = 0; i < source.length; i++) {
     target[i] = source[i];
   }
@@ -44,7 +44,7 @@ export function copy(source: VectorLike, target: VectorLike): VectorLike {
  * @return Resulting vector
  *
  * @example
- * add([1, 2], [3, 4], new Array(2)); // Returns [4, 6]
+ * add([1, 2], [3, 4], new Array(2)); // Returns: [4, 6]
  */
 export function add<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
   for (let i = 0; i < a.length; i++) {
@@ -63,7 +63,7 @@ export function add<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T
  * @return Resulting vector
  *
  * @example
- * addAll([ [1, 2], [3, 4], [5, 6] ], new Array(2)); // Returns [9, 12]
+ * addAll([ [1, 2], [3, 4], [5, 6] ], new Array(2)); // Returns: [9, 12]
  */
 export function addAll<T extends VectorLike>(vectors: T[], target: T = vectors[0]): T {
   copy(vectors[0], target);
@@ -86,7 +86,7 @@ export function addAll<T extends VectorLike>(vectors: T[], target: T = vectors[0
  * @return Resulting vector
  *
  * @example
- * sub([4, 3], [2, 1], new Array(2)); // Returns [2, 2]
+ * sub([4, 3], [2, 1], new Array(2)); // Returns: [2, 2]
  */
 export function sub<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
   for (let i = 0; i < a.length; i++) {
@@ -106,7 +106,7 @@ export function sub<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T
  * @return Resulting vector
  *
  * @example
- * subAll([9, 9], [ [2, 3], [0, 2] ], new Array(2)); // Returns [7, 4]
+ * subAll([9, 9], [ [2, 3], [0, 2] ], new Array(2)); // Returns: [7, 4]
  */
 export function subAll<T extends VectorLike>(a: T, vectors: VectorLike[], target: T = a): T {
   copy(a, target);
@@ -126,7 +126,7 @@ export function subAll<T extends VectorLike>(a: T, vectors: VectorLike[], target
  * @return Resulting vector
  *
  * @example
- * scale([1, 2, 3], 2, new Array(3)); // Returns [2, 4, 6]
+ * scale([1, 2, 3], 2, new Array(3)); // Returns: [2, 4, 6]
  */
 export function scale<T extends VectorLike>(a: T, factor: number, target: T = a): T {
   for (let i = 0; i < a.length; i++) {
@@ -141,7 +141,7 @@ export function scale<T extends VectorLike>(a: T, factor: number, target: T = a)
  * @return Sum of squares
  *
  * @example
- * sumsqr([1, 2, 3]); // Returns 14
+ * sumsqr([1, 2, 3]); // Returns: 14
  */
 export function sumsqr(a: VectorLike): number {
   let sum = 0;
@@ -157,7 +157,7 @@ export function sumsqr(a: VectorLike): number {
  * @return Magnitude of vector
  *
  * @example
- * magnitude([3, 4]); // Returns 5
+ * magnitude([3, 4]); // Returns: 5
  */
 export function magnitude(a: VectorLike): number {
   const sq = sumsqr(a);
@@ -172,12 +172,26 @@ export function magnitude(a: VectorLike): number {
  * @return Normalized vector
  *
  * @example
- * magnitude([0, 10, 0], new Array(3)); // Returns [0, 1, 0]
+ * magnitude([0, 10, 0], new Array(3)); // Returns: [0, 1, 0]
  */
 export function normalize<T extends VectorLike>(a: T, target: T = a): T {
   const len = magnitude(a);
-  const f = len === 0 ? 0 : 1 / len;
-  return scale(a, f, target);
+  if (len === 0) return fill(0, target);
+  else return scale(a, 1 / len, target);
+}
+
+/**
+ * Fill an array/vector with given value.
+ * @param value Value to fill
+ * @param target Target for storing the results
+ * @returns Filled vector
+ *
+ * @example
+ * fill(1, new Array(3)); // Returns: [1, 1, 1]
+ */
+export function fill<T extends VectorLike>(value: number, target: T): T {
+  for (let i = 0; i < target.length; i++) target[i] = value;
+  return target;
 }
 
 /**
@@ -188,7 +202,7 @@ export function normalize<T extends VectorLike>(a: T, target: T = a): T {
  * @return Vector going from a to b
  *
  * @example
- * dir([2, 1], [3, 0], new Array(2)); // Returns [1, -1]
+ * dir([2, 1], [3, 0], new Array(2)); // Returns: [1, -1]
  */
 export function dir<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
   for (let i = 0; i < a.length; i++) {
@@ -204,7 +218,7 @@ export function dir<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T
  * @return Distance between coordinates
  *
  * @example
- * dist([1, 2], [4, 6]); // Returns 5
+ * dist([1, 2], [4, 6]); // Returns: 5
  */
 export function dist(a: VectorLike, b: VectorLike): number {
   let sq = 0;
@@ -222,7 +236,7 @@ export function dist(a: VectorLike, b: VectorLike): number {
  * @return Dot product
  *
  * @example
- * dist([1, 2], [3, 4]); // Returns 11
+ * dist([1, 2], [3, 4]); // Returns: 11
  */
 export function dot(a: VectorLike, b: VectorLike): number {
   let sum = 0;
@@ -242,7 +256,7 @@ export function dot(a: VectorLike, b: VectorLike): number {
  * @return Cross product of vectors
  *
  * @example
- * cross([1, 0, 0], [0, 1, 0]); // Returns [0, 0, 1]
+ * cross([1, 0, 0], [0, 1, 0]); // Returns: [0, 0, 1]
  */
 export function cross<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
   const y = (a[2] * b[0]) - (a[0] * b[2]);
@@ -263,7 +277,7 @@ export function cross<T extends VectorLike>(a: T, b: VectorLike, target: T = a):
  * @return Triple product of vectors
  *
  * @example
- * triple([1, 0, 0], [0, 1, 0], [0, 0, 1]); // Returns 1
+ * triple([1, 0, 0], [0, 1, 0], [0, 0, 1]); // Returns: 1
  */
 export function triple(a: VectorLike, b: VectorLike, c: VectorLike): number {
   return dot(a, cross(b, c));
@@ -278,7 +292,7 @@ export function triple(a: VectorLike, b: VectorLike, c: VectorLike): number {
  * @return Vector with clamped values
  *
  * @example
- * clamp([0, 1, 2, 3], 1, 2, new Array(4)); // Returns [1, 1, 2, 2]
+ * clamp([0, 1, 2, 3], 1, 2, new Array(4)); // Returns: [1, 1, 2, 2]
  */
 export function clamp<T extends VectorLike>(a: T, min: number = 0, max: number = 1, target: T = a): T {
   for (let i = 0; i < a.length; i++) {
@@ -296,7 +310,7 @@ export function clamp<T extends VectorLike>(a: T, min: number = 0, max: number =
  * @return results for each value in edges
  *
  * @example
- * step([0, 1, 2, 3], 1.5, new Array(4)); // Returns [1, 1, 0, 0]
+ * step([0, 1, 2, 3], 1.5, new Array(4)); // Returns: [1, 1, 0, 0]
  */
 export function step<T extends VectorLike>(edges: T, x: number, target: T = edges): T {
   for (let i = 0; i < edges.length; i++) {
@@ -314,7 +328,7 @@ export function step<T extends VectorLike>(edges: T, x: number, target: T = edge
  * @return The interpolated vector
  *
  * @example
- * mix([1, 3], [3, 5], 0.5, new Array(2)); // Returns [2, 4]
+ * mix([1, 3], [3, 5], 0.5, new Array(2)); // Returns: [2, 4]
  */
 export function mix<T extends VectorLike>(a: T, b: VectorLike, t: number, target: T = a): T {
   const n = clampNum(t, 0, 1);
@@ -326,19 +340,18 @@ export function mix<T extends VectorLike>(a: T, b: VectorLike, t: number, target
 }
 
 /**
- * Rounds all values of a vector to a specific amount of digits.
- * @param a Vector to round
- * @param digits Number of digits (Default: 1)
+ * Modify each component of a vector with given function.
+ * @param a Vector to modify
+ * @param modifier Function used to modify component
  * @param target Target for storing the results (Default: a)
- * @return Vector with rounded values
+ * @return Vector with modified values
  *
  * @example
- * round([2.12, 1.15], 1, new Array(2)); // Returns [2.1, 1.2]
+ * modify([1.12, 1.55], Math.round, new Array(2)); // Returns: [1, 2]
  */
-export function round<T extends VectorLike>(a: T, digits: number = 1, target: T = a): T {
-  const f = 10 ** digits;
+export function modify<T extends VectorLike>(a: T, modifier: ((val: number, index: number) => number), target: T = a): T {
   for (let i = 0; i < a.length; i++) {
-    target[i] = Math.round(a[i] * f) / f;
+    target[i] = modifier(a[i], i);
   }
   return target;
 }
@@ -350,7 +363,7 @@ export function round<T extends VectorLike>(a: T, digits: number = 1, target: T 
  * @returns Is target zero vector?
  *
  * @example
- * isZeroVector([0, 0.000023, 0], 0.001); // Returns true
+ * isZeroVector([0, 0.000023, 0], 0.001); // Returns: true
  */
 export function isZeroVector(a: VectorLike, epsilon: number = 0): boolean {
   if (epsilon === undefined) epsilon = 0;
@@ -358,6 +371,27 @@ export function isZeroVector(a: VectorLike, epsilon: number = 0): boolean {
     if (Math.abs(a[i]) > epsilon) return false;
   }
   return true;
+}
+
+/**
+ * Reverses the components of a vector with an performance of O(n/2).
+ * @param vector The vector to reverse
+ * @returns Reversed vector
+ *
+ * @example
+ * reverse([1, 2, 3]); // Returns: [3, 2, 1]
+ */
+export function reverse<T extends VectorLike>(vector: T): T {
+  const end = vector.length - 1;
+  let temp;
+  let tempIdx;
+  for (let i = 0; i < Math.ceil(end / 2); i++) {
+    tempIdx = end - i;
+    temp = vector[tempIdx];
+    vector[tempIdx] = vector[i]
+    vector[i] = temp;
+  }
+  return vector;
 }
 
 /**
