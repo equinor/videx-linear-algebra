@@ -1,3 +1,4 @@
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/videx-linear-algebra/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/videx-linear-algebra/badge)
 # Videx linear algebra
 
 A library with linear algebra used by Videx. Functions are designed with performance in mind, where a target vector can be used to avoid creating new objects.
