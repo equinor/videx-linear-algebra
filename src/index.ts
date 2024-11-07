@@ -432,3 +432,50 @@ export function reshape(array: number[], dimensions: number): number[][] {
   }
   return output;
 }
+
+/**
+ * Determines if a point lies within a triangle in 2D space.
+ * Inspired by: https://stackoverflow.com/a/9755252/5946596
+ * @param {VectorLike} p - The point to check [x, y].
+ * @param {VectorLike} a - Vertex A of the triangle [x, y].
+ * @param {VectorLike} b - Vertex B of the triangle [x, y].
+ * @param {VectorLike} c - Vertex C of the triangle [x, y].
+ * @param {number} tolerance - Precision tolerance for handling points near edges (default: 0.0001).
+ * @returns {boolean} True if the point is strictly inside the triangle; otherwise, false.
+ */
+export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c: VectorLike, tolerance: number = 0.0001): boolean {
+  const APx = p[0] - a[0];
+  const APy = p[1] - a[1];
+
+  // Calculate 2D scalar cross products for AB and AC
+  // Negative Values: Point is left of line
+  // Positive Values: Point is right of line
+  // Value is Zero:   Point is on the line
+  const crossAB = (b[0] - a[0]) * APy - (b[1] - a[1]) * APx;
+  const crossAC = (c[0] - a[0]) * APy - (c[1] - a[1]) * APx;
+
+  // Point is outside if on the same side or exactly on either line
+  const signAB_AC = crossAB * crossAC;
+  if (Math.abs(signAB_AC) < tolerance || signAB_AC > 0) {
+    return false;
+  }
+
+  // Calculate 2D scalar cross product for BC
+  const crossBC = (c[0] - b[0]) * (p[1] - b[1]) - (c[1] - b[1]) * (p[0] - b[0]);
+
+  // Point is outside if on the opposite side or exactly on either line
+  const signAB_BC = crossAB * crossBC;
+  if (Math.abs(signAB_BC) < tolerance || signAB_BC < 0) {
+    return false;
+  }
+
+  return true;
+}
+
+/**
+ * Wrapper function for isPointInTriangle which allows an array of vectors.
+ * @returns {boolean} True if the point is strictly inside the triangle; otherwise, false.
+ */
+export function isPointInTriangleArray(p: VectorLike, triangle: [VectorLike, VectorLike, VectorLike], tolerance: number = 0.0001): boolean {
+  return isPointInTriangle(p, triangle[0], triangle[1], triangle[2], tolerance);
+}

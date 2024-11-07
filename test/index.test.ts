@@ -22,10 +22,9 @@ import {
   reverse,
   flatten,
   reshape,
+  isPointInTriangle,
   VectorLike,
 } from '../src/index';
-
-// import Vector2 from '@equinor/videx-vector2';
 
 const Vector2 = require('@equinor/videx-vector2');
 
@@ -255,4 +254,60 @@ test('flatten', () => {
 test('reshape', () => {
   expect(reshape([1, 2, 3, 4, 5, 6], 2)).toEqual([[1, 2], [3, 4], [5, 6]]);
   expect(reshape([1, 2, 3, 4, 5, 6], 3)).toEqual([[1, 2, 3], [4, 5, 6]]);
+});
+
+describe('isPointInTriangle', () => {
+  const a = [0, 0];
+  const b = [1, 0];
+  const c = [0, 1];
+
+  const pointsInside = [
+    [0.1, 0.1], [0.2, 0.1], [0.1, 0.3],
+  ]
+
+  const pointsOutside = [
+    [0.5, -1], [-1, 0.5], [1, 1],
+  ]
+
+  const pointsOnEdge = [
+    [0, 0], [0.5, 0], [1, 0], [0.5, 0.5], [0, 1], [0, 0.5],
+  ]
+
+  const pointsAligningWithOneEdge = [
+    [0, 2], [2, 0], [-1, 0], [0, -1],
+  ]
+
+  const pointsNearEdgeInside = [
+    [0.01, 0.01], [0.01, 0.6], [0.49, 0.49],
+  ]
+
+  test('Points inside the triangle', () => {
+    pointsInside.forEach(point => {
+      expect(isPointInTriangle(point, a, b, c)).toBe(true);
+    });
+  });
+
+  test('Points outside the triangle', () => {
+    pointsOutside.forEach(point => {
+      expect(isPointInTriangle(point, a, b, c)).toBe(false);
+    });
+  });
+
+  test('Points along edge is outside', () => {
+    pointsOnEdge.forEach(point => {
+      expect(isPointInTriangle(point, a, b, c)).toBe(false);
+    });
+  });
+
+  test('Points aligning with one edge, but outside', () => {
+    pointsAligningWithOneEdge.forEach(point => {
+      expect(isPointInTriangle(point, a, b, c)).toBe(false);
+    });
+  });
+
+  test('Points near edge, but inside', () => {
+    pointsNearEdgeInside.forEach(point => {
+      expect(isPointInTriangle(point, a, b, c)).toBe(true);
+    });
+  });
 });
