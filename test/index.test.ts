@@ -231,7 +231,7 @@ test('reverse', () => {
   // Vector2
   VectorLikeComparison(
     reverse(
-      new Vector2(1, 2)
+      new Vector2(1, 2),
     ),
     [2, 1],
   );
@@ -293,9 +293,9 @@ describe('isPointInTriangle', () => {
     });
   });
 
-  test('Points along edge is outside', () => {
+  test('Points along edge', () => {
     pointsOnEdge.forEach(point => {
-      expect(isPointInTriangle(point, a, b, c)).toBe(false);
+      expect(isPointInTriangle(point, a, b, c)).toBe(true);
     });
   });
 
