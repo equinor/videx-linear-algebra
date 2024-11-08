@@ -293,9 +293,9 @@ describe('isPointInTriangle', () => {
     });
   });
 
-  test('Points along edge is outside', () => {
+  test('Points along edge', () => {
     pointsOnEdge.forEach(point => {
-      expect(isPointInTriangle(point, a, b, c)).toBe(false);
+      expect(isPointInTriangle(point, a, b, c)).toBe(true);
     });
   });
 
