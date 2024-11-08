@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-linear-algebra",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A library with linear algebra used by Videx.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -18,7 +18,8 @@
     "test:watch": "jest --watchAll",
     "predocs": "rimraf docs",
     "docs": "typedoc --out docs src",
-    "postdocs": "copyfiles images/* docs && copyfiles .nojekyll docs"
+    "postdocs": "copyfiles images/* docs && copyfiles .nojekyll docs",
+    "lint": "eslint --color"
   },
   "repository": {
     "type": "git",
@@ -40,16 +41,17 @@
   "homepage": "https://github.com/equinor/videx-linear-algebra#readme",
   "devDependencies": {
     "@equinor/videx-vector2": "^1.0.40",
-    "@types/jest": "^25.1.1",
+    "@types/jest": "^29.5.14",
     "copyfiles": "^2.2.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "rollup": "^3.29.4",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1",
-    "jest": "^29.5.0",
+    "eslint": "^9.14.0",
+    "eslint-plugin-import": "^2.31.0",
+    "@typescript-eslint/eslint-plugin": "^8.13.0",
+    "@typescript-eslint/parser": "^8.13.0",
+    "jest": "^29.7.0",
     "rimraf": "^3.0.1",
     "ts-jest": "^29.1.0",
     "typedoc": "^0.24.8",

@@ -231,7 +231,7 @@ test('reverse', () => {
   // Vector2
   VectorLikeComparison(
     reverse(
-      new Vector2(1, 2)
+      new Vector2(1, 2),
     ),
     [2, 1],
   );
