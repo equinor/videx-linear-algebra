@@ -161,7 +161,9 @@ export function sumsqr(a: VectorLike): number {
  */
 export function magnitude(a: VectorLike): number {
   const sq = sumsqr(a);
-  if (sq === 0) return sq;
+  if (sq === 0) {
+    return sq;
+  }
   return Math.sqrt(sq);
 }
 
@@ -176,8 +178,12 @@ export function magnitude(a: VectorLike): number {
  */
 export function normalize<T extends VectorLike>(a: T, target: T = a): T {
   const len = magnitude(a);
-  if (len === 0) return fill(0, target);
-  else return scale(a, 1 / len, target);
+  if (len === 0) {
+    return fill(0, target);
+  }
+  else {
+    return scale(a, 1 / len, target);
+  }
 }
 
 /**
@@ -190,7 +196,9 @@ export function normalize<T extends VectorLike>(a: T, target: T = a): T {
  * fill(1, new Array(3)); // Returns: [1, 1, 1]
  */
 export function fill<T extends VectorLike>(value: number, target: T): T {
-  for (let i = 0; i < target.length; i++) target[i] = value;
+  for (let i = 0; i < target.length; i++) {
+    target[i] = value;
+  }
   return target;
 }
 
@@ -225,7 +233,9 @@ export function dist(a: VectorLike, b: VectorLike): number {
   for (let i = 0; i < a.length; i++) {
     sq += (b[i] - a[i]) ** 2;
   }
-  if (sq === 0) return sq;
+  if (sq === 0) {
+    return sq;
+  }
   return Math.sqrt(sq);
 }
 
@@ -349,7 +359,7 @@ export function mix<T extends VectorLike>(a: T, b: VectorLike, t: number, target
  * @example
  * modify([1.12, 1.55], Math.round, new Array(2)); // Returns: [1, 2]
  */
-export function modify<T extends VectorLike>(a: T, modifier: ((val: number, index: number) => number), target: T = a): T {
+export function modify<T extends VectorLike>(a: T, modifier: (_arg0: number, _arg1: number) => number, target: T = a): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = modifier(a[i], i);
   }
@@ -366,9 +376,13 @@ export function modify<T extends VectorLike>(a: T, modifier: ((val: number, inde
  * isZeroVector([0, 0.000023, 0], 0.001); // Returns: true
  */
 export function isZeroVector(a: VectorLike, epsilon: number = 0): boolean {
-  if (epsilon === undefined) epsilon = 0;
+  if (epsilon === undefined) {
+    epsilon = 0;
+  }
   for (let i = 0; i < a.length; i++) {
-    if (Math.abs(a[i]) > epsilon) return false;
+    if (Math.abs(a[i]) > epsilon) {
+      return false;
+    }
   }
   return true;
 }
@@ -440,32 +454,40 @@ export function reshape(array: number[], dimensions: number): number[][] {
  * @param {VectorLike} a - Vertex A of the triangle [x, y].
  * @param {VectorLike} b - Vertex B of the triangle [x, y].
  * @param {VectorLike} c - Vertex C of the triangle [x, y].
- * @param {number} tolerance - Precision tolerance for handling points near edges (default: 0.0001).
+ * @param {number} inwardAdjustment - Scales inward adjustment relative to distance for edge handling (default: 1e-6).
  * @returns {boolean} True if the point is strictly inside the triangle; otherwise, false.
+ *
+ * @example
+ * isPointInTriangle([0.25, 0.25], [0, 0], [1, 0], [0, 1]); // Returns true
  */
-export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c: VectorLike, tolerance: number = 0.0001): boolean {
-  const APx = p[0] - a[0];
-  const APy = p[1] - a[1];
+export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c: VectorLike, inwardAdjustment: number = 1e-6): boolean {
+  // Get center of triangle
+  const centerX = (a[0] + b[0] + c[0]) * 0.33333;
+  const centerY = (a[1] + b[1] + c[1]) * 0.33333;
+
+  // Adjust p towards center based on inwardAdjustment
+  const adjPx = p[0] + (centerX - p[0]) * inwardAdjustment;
+  const adjPy = p[1] + (centerY - p[1]) * inwardAdjustment;
+
+  // Get PA vector
+  const APx = adjPx - a[0];
+  const APy = adjPy - a[1];
 
   // Calculate 2D scalar cross products for AB and AC
-  // Negative Values: Point is left of line
   // Positive Values: Point is right of line
+  // Negative Values: Point is left of line
   // Value is Zero:   Point is on the line
-  const crossAB = (b[0] - a[0]) * APy - (b[1] - a[1]) * APx;
-  const crossAC = (c[0] - a[0]) * APy - (c[1] - a[1]) * APx;
+  const leftOfAB = (b[0] - a[0]) * APy - (b[1] - a[1]) * APx > 0;
+  const leftOfAC = (c[0] - a[0]) * APy - (c[1] - a[1]) * APx > 0;
 
-  // Point is outside if on the same side or exactly on either line
-  const signAB_AC = crossAB * crossAC;
-  if (Math.abs(signAB_AC) < tolerance || signAB_AC > 0) {
+  if (leftOfAB === leftOfAC) {
     return false;
   }
 
   // Calculate 2D scalar cross product for BC
-  const crossBC = (c[0] - b[0]) * (p[1] - b[1]) - (c[1] - b[1]) * (p[0] - b[0]);
+  const leftOfBC = (c[0] - b[0]) * (adjPy - b[1]) - (c[1] - b[1]) * (adjPx - b[0]) > 0;
 
-  // Point is outside if on the opposite side or exactly on either line
-  const signAB_BC = crossAB * crossBC;
-  if (Math.abs(signAB_BC) < tolerance || signAB_BC < 0) {
+  if (leftOfAB !== leftOfBC) {
     return false;
   }
 
