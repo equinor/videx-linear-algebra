@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-linear-algebra",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A library with linear algebra used by Videx.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -40,13 +40,13 @@
   },
   "homepage": "https://github.com/equinor/videx-linear-algebra#readme",
   "devDependencies": {
-    "@equinor/videx-vector2": "^1.0.40",
+    "@equinor/videx-vector2": "^1.0.46",
     "@types/jest": "^29.5.14",
     "copyfiles": "^2.2.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
-    "rollup": "^3.29.4",
+    "rollup": "^3.29.5",
     "eslint": "^9.15.0",
     "eslint-plugin-import": "^2.31.0",
     "@typescript-eslint/eslint-plugin": "^8.13.0",
