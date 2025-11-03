@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/equinor/videx-linear-algebra#readme",
   "devDependencies": {
-    "@equinor/videx-vector2": "^1.0.46",
+    "@equinor/videx-vector2": "^1.0.47",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
