@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.16](https://github.com/equinor/videx-linear-algebra/compare/v1.0.15...v1.0.16) (2026-03-06)
+
+
+### Bug Fixes
+
+* **npm:** bump minimatch ([#60](https://github.com/equinor/videx-linear-algebra/issues/60)) ([9e8f0f9](https://github.com/equinor/videx-linear-algebra/commit/9e8f0f96c6c3d9007f5f1ab30a3b08073b5dd5db))
+
 ## [1.0.15](https://github.com/equinor/videx-linear-algebra/compare/v1.0.14...v1.0.15) (2026-01-13)
 
 
