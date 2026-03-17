@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.18](https://github.com/equinor/videx-linear-algebra/compare/v1.0.17...v1.0.18) (2026-03-17)
+
+
+### Bug Fixes
+
+* **taskless:** test oidc flow with package update ([#68](https://github.com/equinor/videx-linear-algebra/issues/68)) ([dbde70c](https://github.com/equinor/videx-linear-algebra/commit/dbde70c3e3a669b2c0ee683bbcf2905df4ae7345))
+
 ## [1.0.17](https://github.com/equinor/videx-linear-algebra/compare/v1.0.16...v1.0.17) (2026-03-17)
 
 
