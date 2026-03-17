@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.17](https://github.com/equinor/videx-linear-algebra/compare/v1.0.16...v1.0.17) (2026-03-17)
+
+
+### Bug Fixes
+
+* **taskless:** security update ([#66](https://github.com/equinor/videx-linear-algebra/issues/66)) ([06b81d9](https://github.com/equinor/videx-linear-algebra/commit/06b81d9f800ed46a2bd305ba82657c63f52af20e))
+
 ## [1.0.16](https://github.com/equinor/videx-linear-algebra/compare/v1.0.15...v1.0.16) (2026-03-06)
 
 
