@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.19](https://github.com/equinor/videx-linear-algebra/compare/v1.0.18...v1.0.19) (2026-03-27)
+
+
+### Bug Fixes
+
+* **npm:** bump flatted from 3.4.1 to 3.4.2 ([#71](https://github.com/equinor/videx-linear-algebra/issues/71)) ([25594b0](https://github.com/equinor/videx-linear-algebra/commit/25594b05b2ed7e8e2f89f08ff703fa641db56ddd))
+
 ## [1.0.18](https://github.com/equinor/videx-linear-algebra/compare/v1.0.17...v1.0.18) (2026-03-17)
 
 
