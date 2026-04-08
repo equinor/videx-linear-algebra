@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.20](https://github.com/equinor/videx-linear-algebra/compare/v1.0.19...v1.0.20) (2026-04-08)
+
+
+### Bug Fixes
+
+* **npm:** bump handlebars from 4.7.8 to 4.7.9 ([#73](https://github.com/equinor/videx-linear-algebra/issues/73)) ([dd23783](https://github.com/equinor/videx-linear-algebra/commit/dd237839d17abe436c3818dad4f17fedefb3c9ec))
+* **npm:** bump picomatch from 2.3.1 to 2.3.2 ([#72](https://github.com/equinor/videx-linear-algebra/issues/72)) ([46675ae](https://github.com/equinor/videx-linear-algebra/commit/46675aeecdcbe89b5ea723cc43f73b416e9c12fa))
+* **npm:** bump serialize-javascript from 7.0.4 to 7.0.5 ([#77](https://github.com/equinor/videx-linear-algebra/issues/77)) ([cbf453b](https://github.com/equinor/videx-linear-algebra/commit/cbf453bfe362bb43a029053c92623be6c7b70e88))
+
 ## [1.0.19](https://github.com/equinor/videx-linear-algebra/compare/v1.0.18...v1.0.19) (2026-03-27)
 
 
