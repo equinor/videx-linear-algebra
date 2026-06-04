@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.21](https://github.com/equinor/videx-linear-algebra/compare/v1.0.20...v1.0.21) (2026-06-04)
+
+
+### Bug Fixes
+
+* **86:** dependabot updates ([#87](https://github.com/equinor/videx-linear-algebra/issues/87)) ([00c650a](https://github.com/equinor/videx-linear-algebra/commit/00c650af5a68c0e1bcfdd02a4ab91e5377972edd))
+
 ## [1.0.20](https://github.com/equinor/videx-linear-algebra/compare/v1.0.19...v1.0.20) (2026-04-08)
 
 
