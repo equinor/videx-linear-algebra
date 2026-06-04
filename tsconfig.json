@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
     "declaration": true,
+    "types": ["node"],
+    "rootDir": "./src",
     "declarationDir": "./dist",
-    "module": "es6",
-    "moduleResolution": "node",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "noImplicitAny": true,
     "outDir": "./dist",
-    "target": "es5"
+    "target": "es2022"
   },
-  "include": [
-    "src/*"
-  ],
-  "exclude": ["node_modules"],
+  "include": ["src/*"],
+  "exclude": ["node_modules"]
 }
