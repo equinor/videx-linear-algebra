@@ -23,6 +23,8 @@ import {
   flatten,
   reshape,
   isPointInTriangle,
+  isPointInTriangleArray,
+  fill,
   VectorLike,
 } from '../src/index';
 
@@ -100,8 +102,8 @@ test('subAll', () => {
 });
 
 test('scale', () => {
-  expect(scale([1, 2, 3], 2, new Array(2))).toEqual([2, 4, 6]); // Multiply
-  expect(scale([2, 4, 6], 1 / 2, new Array(2))).toEqual([1, 2, 3]); // Divide
+  expect(scale([1, 2, 3], 2, new Array(3))).toEqual([2, 4, 6]); // Multiply
+  expect(scale([2, 4, 6], 1 / 2, new Array(3))).toEqual([1, 2, 3]); // Divide
 
   // Mutate
   const a = [1, 2, 3];
@@ -117,6 +119,16 @@ test('sumsqr', () => {
 test('magnitude', () => {
   expect(magnitude([3, 4])).toEqual(5);
   expect(magnitude([2, 0])).toEqual(2);
+});
+
+test('fill', () => {
+  expect(fill(1, new Array(3))).toEqual([1, 1, 1]);
+  expect(fill(0, new Array(2))).toEqual([0, 0]);
+
+  // Mutate
+  const a = [1, 2, 3];
+  fill(7, a);
+  expect(a).toEqual([7, 7, 7]);
 });
 
 test('normalize', () => {
@@ -311,3 +323,20 @@ describe('isPointInTriangle', () => {
     });
   });
 });
+
+describe('isPointInTriangleArray', () => {
+  const triangle: [number[], number[], number[]] = [[0, 0], [1, 0], [0, 1]];
+
+  test('Point inside the triangle', () => {
+    expect(isPointInTriangleArray([0.25, 0.25], triangle)).toBe(true);
+  });
+
+  test('Point outside the triangle', () => {
+    expect(isPointInTriangleArray([1, 1], triangle)).toBe(false);
+  });
+
+  test('Point on an edge', () => {
+    expect(isPointInTriangleArray([0.5, 0], triangle)).toBe(true);
+  });
+});
+
