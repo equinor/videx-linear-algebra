@@ -174,7 +174,7 @@ export function magnitude(a: VectorLike): number {
  * @return Normalized vector
  *
  * @example
- * magnitude([0, 10, 0], new Array(3)); // Returns: [0, 1, 0]
+ * normalize([0, 10, 0], new Array(3)); // Returns: [0, 1, 0]
  */
 export function normalize<T extends VectorLike>(a: T, target: T = a): T {
   const len = magnitude(a);
@@ -246,7 +246,7 @@ export function dist(a: VectorLike, b: VectorLike): number {
  * @return Dot product
  *
  * @example
- * dist([1, 2], [3, 4]); // Returns: 11
+ * dot([1, 2], [3, 4]); // Returns: 11
  */
 export function dot(a: VectorLike, b: VectorLike): number {
   let sum = 0;
@@ -455,7 +455,7 @@ export function reshape(array: number[], dimensions: number): number[][] {
  * @param {VectorLike} b - Vertex B of the triangle [x, y].
  * @param {VectorLike} c - Vertex C of the triangle [x, y].
  * @param {number} inwardAdjustment - Scales inward adjustment relative to distance for edge handling (default: 1e-6).
- * @returns {boolean} True if the point is strictly inside the triangle; otherwise, false.
+ * @returns {boolean} True if the point is inside the triangle or on one of its edges; otherwise, false.
  *
  * @example
  * isPointInTriangle([0.25, 0.25], [0, 0], [1, 0], [0, 1]); // Returns true
@@ -496,7 +496,7 @@ export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c
 
 /**
  * Wrapper function for isPointInTriangle which allows an array of vectors.
- * @returns {boolean} True if the point is strictly inside the triangle; otherwise, false.
+ * @returns {boolean} True if the point is inside the triangle or on one of its edges; otherwise, false.
  */
 export function isPointInTriangleArray(p: VectorLike, triangle: [VectorLike, VectorLike, VectorLike], tolerance: number = 0.0001): boolean {
   return isPointInTriangle(p, triangle[0], triangle[1], triangle[2], tolerance);
