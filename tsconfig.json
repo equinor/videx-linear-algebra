@@ -3,7 +3,7 @@
     "declaration": true,
     "declarationDir": "./dist",
     "rootDirs": ["./src", "./test"],
-    "types": ["node", "vitest/globals"],
+    "types": ["vitest/globals"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "noImplicitAny": true,
