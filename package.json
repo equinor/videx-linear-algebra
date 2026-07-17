@@ -59,16 +59,5 @@
   },
   "dependencies": {
     "@equinor/videx-math": "^1.1.8"
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "ts-jest"
-    },
-    "testRegex": "/test/.*",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ]
   }
 }
