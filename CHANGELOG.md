@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.22](https://github.com/equinor/videx-linear-algebra/compare/v1.0.21...v1.0.22) (2026-07-21)
+
+
+### Bug Fixes
+
+* **101:** replace jest with vitest; bump JS-YAML; bump node version t… ([#103](https://github.com/equinor/videx-linear-algebra/issues/103)) ([ab36139](https://github.com/equinor/videx-linear-algebra/commit/ab36139411937671bd8cc4f56c2ec80e2f7c17ad))
+* **npm:** bump markdown-it from 14.1.1 to 14.2.0 ([#92](https://github.com/equinor/videx-linear-algebra/issues/92)) ([37e7a5e](https://github.com/equinor/videx-linear-algebra/commit/37e7a5e6ff8c9fdfa22f2e6bc22d429700d0c6c9))
+* **taskless:** brace-expansion dependabot july 26 ([#107](https://github.com/equinor/videx-linear-algebra/issues/107)) ([f943ad0](https://github.com/equinor/videx-linear-algebra/commit/f943ad0cc6bd267ee6488874f3d1adc484f4e5d9))
+
 ## [1.0.21](https://github.com/equinor/videx-linear-algebra/compare/v1.0.20...v1.0.21) (2026-06-04)
 
 
