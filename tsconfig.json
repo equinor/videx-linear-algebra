@@ -2,14 +2,14 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./dist",
-    "rootDir": "./src",
-    "types": ["node", "jest"],
+    "rootDirs": ["./src", "./test"],
+    "types": ["vitest/globals"],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "noImplicitAny": true,
     "outDir": "./dist",
-    "target": "es2022",
+    "target": "es6"
   },
-  "include": ["./src"],
+  "include": ["./src", "test/*"],
   "exclude": ["node_modules"]
 }

@@ -1,3 +1,5 @@
+import Vector2 from '@equinor/videx-vector2';
+
 /* eslint-disable no-undef */
 import {
   copy,
@@ -27,8 +29,6 @@ import {
   fill,
   VectorLike,
 } from '../src/index';
-
-const Vector2 = require('@equinor/videx-vector2');
 
 function VectorLikeComparison(a: VectorLike, b: VectorLike) {
   for(let i = 0; i < a.length; i++) {
