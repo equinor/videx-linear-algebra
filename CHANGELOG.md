@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.23](https://github.com/equinor/videx-linear-algebra/compare/v1.0.22...v1.0.23) (2026-07-27)
+
+
+### Bug Fixes
+
+* **npm:** bump linkify-it from 5.0.1 to 5.0.2 ([#109](https://github.com/equinor/videx-linear-algebra/issues/109)) ([545d68a](https://github.com/equinor/videx-linear-algebra/commit/545d68a3c75d1d8f54e767ca7c7d54cbcba55f22))
+
 ## [1.0.22](https://github.com/equinor/videx-linear-algebra/compare/v1.0.21...v1.0.22) (2026-07-21)
 
 
