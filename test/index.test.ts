@@ -31,7 +31,7 @@ import {
 } from '../src/index';
 
 function VectorLikeComparison(a: VectorLike, b: VectorLike) {
-  for(let i = 0; i < a.length; i++) {
+  for (let i = 0; i < a.length; i++) {
     expect(a[i]).toBe(b[i]);
   }
 }
@@ -50,11 +50,7 @@ test('add', () => {
 
   // Vector2
   VectorLikeComparison(
-    add(
-      new Vector2(1, 2),
-      new Vector2(3, 4),
-      Vector2.zero,
-    ),
+    add(new Vector2(1, 2), new Vector2(3, 4), Vector2.zero),
     [4, 6],
   );
 
@@ -204,26 +200,16 @@ test('mix', () => {
 });
 
 test('modify', () => {
-  expect(
-    modify([1.12, 1.55], Math.round, new Array(2)),
-  ).toEqual([1, 2]);
+  expect(modify([1.12, 1.55], Math.round, new Array(2))).toEqual([1, 2]);
 
-  expect(
-    modify(
-      [0.75, 0.1, 0.3],
-      d => 1.0 - d,
-      new Array(3),
-    ),
-  ).toEqual([0.25, 0.9, 0.7]);
+  expect(modify([0.75, 0.1, 0.3], d => 1.0 - d, new Array(3))).toEqual([
+    0.25, 0.9, 0.7,
+  ]);
 
   // Using index
-  expect(
-    modify(
-      [0.75, 0.1, 0.3],
-      (d, i) => d + i,
-      new Array(3),
-    ),
-  ).toEqual([0.75, 1.1, 2.3]);
+  expect(modify([0.75, 0.1, 0.3], (d, i) => d + i, new Array(3))).toEqual([
+    0.75, 1.1, 2.3,
+  ]);
 
   // Mutate
   const a = [1.12, 1.55];
@@ -241,31 +227,35 @@ test('reverse', () => {
   expect(reverse([1, 2, 3, 4, 5, 6, 7, 8])).toEqual([8, 7, 6, 5, 4, 3, 2, 1]);
 
   // Vector2
-  VectorLikeComparison(
-    reverse(
-      new Vector2(1, 2),
-    ),
-    [2, 1],
-  );
+  VectorLikeComparison(reverse(new Vector2(1, 2)), [2, 1]);
 });
 
 test('flatten', () => {
-  expect(flatten([[1, 2], [3, 4], [5, 6]])).toEqual([1, 2, 3, 4, 5, 6]);
+  expect(
+    flatten([
+      [1, 2],
+      [3, 4],
+      [5, 6],
+    ]),
+  ).toEqual([1, 2, 3, 4, 5, 6]);
 
   // Vector2
   VectorLikeComparison(
-    flatten([
-      new Vector2(1, 2),
-      new Vector2(3, 4),
-      new Vector2(5, 6),
-    ]),
+    flatten([new Vector2(1, 2), new Vector2(3, 4), new Vector2(5, 6)]),
     [1, 2, 3, 4, 5, 6],
   );
 });
 
 test('reshape', () => {
-  expect(reshape([1, 2, 3, 4, 5, 6], 2)).toEqual([[1, 2], [3, 4], [5, 6]]);
-  expect(reshape([1, 2, 3, 4, 5, 6], 3)).toEqual([[1, 2, 3], [4, 5, 6]]);
+  expect(reshape([1, 2, 3, 4, 5, 6], 2)).toEqual([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ]);
+  expect(reshape([1, 2, 3, 4, 5, 6], 3)).toEqual([
+    [1, 2, 3],
+    [4, 5, 6],
+  ]);
 });
 
 describe('isPointInTriangle', () => {
@@ -274,24 +264,38 @@ describe('isPointInTriangle', () => {
   const c = [0, 1];
 
   const pointsInside = [
-    [0.1, 0.1], [0.2, 0.1], [0.1, 0.3],
-  ]
+    [0.1, 0.1],
+    [0.2, 0.1],
+    [0.1, 0.3],
+  ];
 
   const pointsOutside = [
-    [0.5, -1], [-1, 0.5], [1, 1],
-  ]
+    [0.5, -1],
+    [-1, 0.5],
+    [1, 1],
+  ];
 
   const pointsOnEdge = [
-    [0, 0], [0.5, 0], [1, 0], [0.5, 0.5], [0, 1], [0, 0.5],
-  ]
+    [0, 0],
+    [0.5, 0],
+    [1, 0],
+    [0.5, 0.5],
+    [0, 1],
+    [0, 0.5],
+  ];
 
   const pointsAligningWithOneEdge = [
-    [0, 2], [2, 0], [-1, 0], [0, -1],
-  ]
+    [0, 2],
+    [2, 0],
+    [-1, 0],
+    [0, -1],
+  ];
 
   const pointsNearEdgeInside = [
-    [0.01, 0.01], [0.01, 0.6], [0.49, 0.49],
-  ]
+    [0.01, 0.01],
+    [0.01, 0.6],
+    [0.49, 0.49],
+  ];
 
   test('Points inside the triangle', () => {
     pointsInside.forEach(point => {
@@ -325,7 +329,11 @@ describe('isPointInTriangle', () => {
 });
 
 describe('isPointInTriangleArray', () => {
-  const triangle: [number[], number[], number[]] = [[0, 0], [1, 0], [0, 1]];
+  const triangle: [number[], number[], number[]] = [
+    [0, 0],
+    [1, 0],
+    [0, 1],
+  ];
 
   test('Point inside the triangle', () => {
     expect(isPointInTriangleArray([0.25, 0.25], triangle)).toBe(true);
@@ -339,4 +347,3 @@ describe('isPointInTriangleArray', () => {
     expect(isPointInTriangleArray([0.5, 0], triangle)).toBe(true);
   });
 });
-

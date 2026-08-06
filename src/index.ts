@@ -1,7 +1,4 @@
-import {
-  clamp as clampNum,
-  step as stepNum,
-} from '@equinor/videx-math';
+import { clamp as clampNum, step as stepNum } from '@equinor/videx-math';
 
 /**
  * Interface for arrays and vector-like class structures.
@@ -10,11 +7,11 @@ export interface VectorLike {
   /**
    * Length of vector-like object.
    */
-  length: number,
+  length: number;
   /**
    * Numeric indices.
    */
-  [index: number]: number,
+  [index: number]: number;
 }
 
 /**
@@ -46,7 +43,11 @@ export function copy<T extends VectorLike>(source: VectorLike, target: T): T {
  * @example
  * add([1, 2], [3, 4], new Array(2)); // Returns: [4, 6]
  */
-export function add<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
+export function add<T extends VectorLike>(
+  a: T,
+  b: VectorLike,
+  target: T = a,
+): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = a[i] + b[i];
   }
@@ -65,7 +66,10 @@ export function add<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T
  * @example
  * addAll([ [1, 2], [3, 4], [5, 6] ], new Array(2)); // Returns: [9, 12]
  */
-export function addAll<T extends VectorLike>(vectors: T[], target: T = vectors[0]): T {
+export function addAll<T extends VectorLike>(
+  vectors: T[],
+  target: T = vectors[0],
+): T {
   copy(vectors[0], target);
   for (let m = 1; m < vectors.length; m++) {
     for (let n = 0; n < target.length; n++) {
@@ -88,7 +92,11 @@ export function addAll<T extends VectorLike>(vectors: T[], target: T = vectors[0
  * @example
  * sub([4, 3], [2, 1], new Array(2)); // Returns: [2, 2]
  */
-export function sub<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
+export function sub<T extends VectorLike>(
+  a: T,
+  b: VectorLike,
+  target: T = a,
+): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = a[i] - b[i];
   }
@@ -108,7 +116,11 @@ export function sub<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T
  * @example
  * subAll([9, 9], [ [2, 3], [0, 2] ], new Array(2)); // Returns: [7, 4]
  */
-export function subAll<T extends VectorLike>(a: T, vectors: VectorLike[], target: T = a): T {
+export function subAll<T extends VectorLike>(
+  a: T,
+  vectors: VectorLike[],
+  target: T = a,
+): T {
   copy(a, target);
   for (let m = 0; m < vectors.length; m++) {
     for (let n = 0; n < target.length; n++) {
@@ -128,7 +140,11 @@ export function subAll<T extends VectorLike>(a: T, vectors: VectorLike[], target
  * @example
  * scale([1, 2, 3], 2, new Array(3)); // Returns: [2, 4, 6]
  */
-export function scale<T extends VectorLike>(a: T, factor: number, target: T = a): T {
+export function scale<T extends VectorLike>(
+  a: T,
+  factor: number,
+  target: T = a,
+): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = a[i] * factor;
   }
@@ -180,8 +196,7 @@ export function normalize<T extends VectorLike>(a: T, target: T = a): T {
   const len = magnitude(a);
   if (len === 0) {
     return fill(0, target);
-  }
-  else {
+  } else {
     return scale(a, 1 / len, target);
   }
 }
@@ -212,7 +227,11 @@ export function fill<T extends VectorLike>(value: number, target: T): T {
  * @example
  * dir([2, 1], [3, 0], new Array(2)); // Returns: [1, -1]
  */
-export function dir<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
+export function dir<T extends VectorLike>(
+  a: T,
+  b: VectorLike,
+  target: T = a,
+): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = b[i] - a[i];
   }
@@ -268,10 +287,14 @@ export function dot(a: VectorLike, b: VectorLike): number {
  * @example
  * cross([1, 0, 0], [0, 1, 0]); // Returns: [0, 0, 1]
  */
-export function cross<T extends VectorLike>(a: T, b: VectorLike, target: T = a): T {
-  const y = (a[2] * b[0]) - (a[0] * b[2]);
-  const z = (a[0] * b[1]) - (a[1] * b[0]);
-  target[0] = (a[1] * b[2]) - (a[2] * b[1]);
+export function cross<T extends VectorLike>(
+  a: T,
+  b: VectorLike,
+  target: T = a,
+): T {
+  const y = a[2] * b[0] - a[0] * b[2];
+  const z = a[0] * b[1] - a[1] * b[0];
+  target[0] = a[1] * b[2] - a[2] * b[1];
   target[1] = y;
   target[2] = z;
   return target;
@@ -304,13 +327,17 @@ export function triple(a: VectorLike, b: VectorLike, c: VectorLike): number {
  * @example
  * clamp([0, 1, 2, 3], 1, 2, new Array(4)); // Returns: [1, 1, 2, 2]
  */
-export function clamp<T extends VectorLike>(a: T, min: number = 0, max: number = 1, target: T = a): T {
+export function clamp<T extends VectorLike>(
+  a: T,
+  min: number = 0,
+  max: number = 1,
+  target: T = a,
+): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = clampNum(a[i], min, max);
   }
   return target;
 }
-
 
 /**
  * GLSL step for all values of a vector
@@ -322,7 +349,11 @@ export function clamp<T extends VectorLike>(a: T, min: number = 0, max: number =
  * @example
  * step([0, 1, 2, 3], 1.5, new Array(4)); // Returns: [1, 1, 0, 0]
  */
-export function step<T extends VectorLike>(edges: T, x: number, target: T = edges): T {
+export function step<T extends VectorLike>(
+  edges: T,
+  x: number,
+  target: T = edges,
+): T {
   for (let i = 0; i < edges.length; i++) {
     target[i] = stepNum(edges[i], x);
   }
@@ -340,7 +371,12 @@ export function step<T extends VectorLike>(edges: T, x: number, target: T = edge
  * @example
  * mix([1, 3], [3, 5], 0.5, new Array(2)); // Returns: [2, 4]
  */
-export function mix<T extends VectorLike>(a: T, b: VectorLike, t: number, target: T = a): T {
+export function mix<T extends VectorLike>(
+  a: T,
+  b: VectorLike,
+  t: number,
+  target: T = a,
+): T {
   const n = clampNum(t, 0, 1);
   const m = 1 - n;
   for (let i = 0; i < a.length; i++) {
@@ -359,7 +395,11 @@ export function mix<T extends VectorLike>(a: T, b: VectorLike, t: number, target
  * @example
  * modify([1.12, 1.55], Math.round, new Array(2)); // Returns: [1, 2]
  */
-export function modify<T extends VectorLike>(a: T, modifier: (_arg0: number, _arg1: number) => number, target: T = a): T {
+export function modify<T extends VectorLike>(
+  a: T,
+  modifier: (_arg0: number, _arg1: number) => number,
+  target: T = a,
+): T {
   for (let i = 0; i < a.length; i++) {
     target[i] = modifier(a[i], i);
   }
@@ -402,7 +442,7 @@ export function reverse<T extends VectorLike>(vector: T): T {
   for (let i = 0; i < Math.ceil(end / 2); i++) {
     tempIdx = end - i;
     temp = vector[tempIdx];
-    vector[tempIdx] = vector[i]
+    vector[tempIdx] = vector[i];
     vector[i] = temp;
   }
   return vector;
@@ -460,7 +500,13 @@ export function reshape(array: number[], dimensions: number): number[][] {
  * @example
  * isPointInTriangle([0.25, 0.25], [0, 0], [1, 0], [0, 1]); // Returns true
  */
-export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c: VectorLike, inwardAdjustment: number = 1e-6): boolean {
+export function isPointInTriangle(
+  p: VectorLike,
+  a: VectorLike,
+  b: VectorLike,
+  c: VectorLike,
+  inwardAdjustment: number = 1e-6,
+): boolean {
   // Get center of triangle
   const centerX = (a[0] + b[0] + c[0]) * 0.33333;
   const centerY = (a[1] + b[1] + c[1]) * 0.33333;
@@ -485,7 +531,8 @@ export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c
   }
 
   // Calculate 2D scalar cross product for BC
-  const leftOfBC = (c[0] - b[0]) * (adjPy - b[1]) - (c[1] - b[1]) * (adjPx - b[0]) > 0;
+  const leftOfBC =
+    (c[0] - b[0]) * (adjPy - b[1]) - (c[1] - b[1]) * (adjPx - b[0]) > 0;
 
   if (leftOfAB !== leftOfBC) {
     return false;
@@ -498,6 +545,10 @@ export function isPointInTriangle(p: VectorLike, a: VectorLike, b: VectorLike, c
  * Wrapper function for isPointInTriangle which allows an array of vectors.
  * @returns {boolean} True if the point is inside the triangle or on one of its edges; otherwise, false.
  */
-export function isPointInTriangleArray(p: VectorLike, triangle: [VectorLike, VectorLike, VectorLike], tolerance: number = 0.0001): boolean {
+export function isPointInTriangleArray(
+  p: VectorLike,
+  triangle: [VectorLike, VectorLike, VectorLike],
+  tolerance: number = 0.0001,
+): boolean {
   return isPointInTriangle(p, triangle[0], triangle[1], triangle[2], tolerance);
 }
