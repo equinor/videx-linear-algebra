@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.25](https://github.com/equinor/videx-linear-algebra/compare/v1.0.24...v1.0.25) (2026-08-11)
+
+
+### Bug Fixes
+
+* **npm:** bump postcss from 8.5.19 to 8.5.26 ([#117](https://github.com/equinor/videx-linear-algebra/issues/117)) ([9285872](https://github.com/equinor/videx-linear-algebra/commit/92858725f9c192b2820ff05b9aa1d97d59e6d4e8))
+
 ## [1.0.24](https://github.com/equinor/videx-linear-algebra/compare/v1.0.23...v1.0.24) (2026-08-06)
 
 
