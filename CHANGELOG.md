@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.24](https://github.com/equinor/videx-linear-algebra/compare/v1.0.23...v1.0.24) (2026-08-06)
+
+
+### Bug Fixes
+
+* **111:** add and run prettier ([#114](https://github.com/equinor/videx-linear-algebra/issues/114)) ([24fbad3](https://github.com/equinor/videx-linear-algebra/commit/24fbad39b42ddb43c2c70fbe2431395e851379e4))
+
 ## [1.0.23](https://github.com/equinor/videx-linear-algebra/compare/v1.0.22...v1.0.23) (2026-07-27)
 
 
