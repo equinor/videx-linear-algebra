@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.26](https://github.com/equinor/videx-linear-algebra/compare/v1.0.25...v1.0.26) (2026-08-12)
+
+
+### Bug Fixes
+
+* **taskless:** bump brace-expansion and js-yaml ([#120](https://github.com/equinor/videx-linear-algebra/issues/120)) ([93b1b5c](https://github.com/equinor/videx-linear-algebra/commit/93b1b5c736a1959ec5d2b227760df0b0ec0f4228))
+
 ## [1.0.25](https://github.com/equinor/videx-linear-algebra/compare/v1.0.24...v1.0.25) (2026-08-11)
 
 
