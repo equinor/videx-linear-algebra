@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.27](https://github.com/equinor/videx-linear-algebra/compare/v1.0.26...v1.0.27) (2026-09-03)
+
+
+### Bug Fixes
+
+* **npm:** bump @humanfs/node from 0.16.6 to 0.16.8 ([#130](https://github.com/equinor/videx-linear-algebra/issues/130)) ([dd012f1](https://github.com/equinor/videx-linear-algebra/commit/dd012f1e34d24a65d82a5073db2acdc5702d4319))
+
 ## [1.0.26](https://github.com/equinor/videx-linear-algebra/compare/v1.0.25...v1.0.26) (2026-08-12)
 
 
