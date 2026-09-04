@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.28](https://github.com/equinor/videx-linear-algebra/compare/v1.0.27...v1.0.28) (2026-09-04)
+
+
+### Bug Fixes
+
+* fix release workflow ([#132](https://github.com/equinor/videx-linear-algebra/issues/132)) ([9c12e54](https://github.com/equinor/videx-linear-algebra/commit/9c12e54ced527cc78a600727d762a751b22fe429))
+
 ## [1.0.27](https://github.com/equinor/videx-linear-algebra/compare/v1.0.26...v1.0.27) (2026-09-03)
 
 
