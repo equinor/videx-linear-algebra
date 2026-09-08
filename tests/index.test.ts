@@ -1,6 +1,5 @@
 import Vector2 from '@equinor/videx-vector2';
 
-/* eslint-disable no-undef */
 import {
   copy,
   add,

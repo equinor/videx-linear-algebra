@@ -28,7 +28,7 @@
     "predocs": "node scripts/remove.mjs docs",
     "docs": "typedoc --out docs src",
     "postdocs": "node scripts/copy_docs_assets.mjs",
-    "lint": "eslint --color",
+    "lint": "oxlint",
     "prettier": "prettier . --write"
   },
   "repository": {
@@ -54,10 +54,7 @@
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "@rollup/plugin-typescript": "^12.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.46.3",
-    "@typescript-eslint/parser": "^8.46.3",
-    "eslint": "^9.39.2",
-    "eslint-plugin-import": "^2.32.0",
+    "oxlint": "^1.82.0 ",
     "prettier": "^3.9.6",
     "rollup": "^4.60.4",
     "tslib": "^2.8.1",
