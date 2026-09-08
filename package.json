@@ -29,7 +29,8 @@
     "docs": "typedoc --out docs src",
     "postdocs": "node scripts/copy_docs_assets.mjs",
     "lint": "eslint --color",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "lintOx": "oxlint"
   },
   "repository": {
     "type": "git",
@@ -58,6 +59,7 @@
     "@typescript-eslint/parser": "^8.46.3",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
+    "oxlint": "^1.82.0 ",
     "prettier": "^3.9.6",
     "rollup": "^4.60.4",
     "tslib": "^2.8.1",
