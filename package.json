@@ -29,7 +29,8 @@
     "docs": "typedoc --out docs src",
     "postdocs": "node scripts/copy_docs_assets.mjs",
     "lint": "eslint --color",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,7 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.46.3",
+    "@vitest/coverage-v8": "^4.1.10",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
     "prettier": "^3.9.6",
