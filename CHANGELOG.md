@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.29](https://github.com/equinor/videx-linear-algebra/compare/v1.0.28...v1.0.29) (2026-09-09)
+
+
+### Bug Fixes
+
+* replace eslint with oxlint ([#135](https://github.com/equinor/videx-linear-algebra/issues/135)) ([b38cb5a](https://github.com/equinor/videx-linear-algebra/commit/b38cb5a0a6c7b396f112b11fb57bab45284186c3))
+
 ## [1.0.28](https://github.com/equinor/videx-linear-algebra/compare/v1.0.27...v1.0.28) (2026-09-04)
 
 
