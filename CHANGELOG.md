@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.30](https://github.com/equinor/videx-linear-algebra/compare/v1.0.29...v1.0.30) (2026-09-15)
+
+
+### Bug Fixes
+
+* align oxlint configs pt 2 ([#144](https://github.com/equinor/videx-linear-algebra/issues/144)) ([789a072](https://github.com/equinor/videx-linear-algebra/commit/789a072e6af1776b78b6c7c4d09b21f617a88858))
+
 ## [1.0.29](https://github.com/equinor/videx-linear-algebra/compare/v1.0.28...v1.0.29) (2026-09-14)
 
 
