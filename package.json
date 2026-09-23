@@ -3,9 +3,8 @@
   "version": "1.0.30",
   "description": "A library with linear algebra used by Videx.",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
   "files": [
     "dist"
   ],
@@ -14,8 +13,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.js",
-      "default": "./dist/index.js"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.esm.js"
     },
     "./package.json": "./package.json"
   },
