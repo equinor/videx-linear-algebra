@@ -1,6 +1,6 @@
 {
   "name": "@equinor/videx-linear-algebra",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "A library with linear algebra used by Videx.",
   "type": "module",
   "main": "dist/index.cjs",
