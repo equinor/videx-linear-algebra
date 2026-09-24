@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.31](https://github.com/equinor/videx-linear-algebra/compare/v1.0.30...v1.0.31) (2026-09-24)
+
+
+### Bug Fixes
+
+* **ci:** make release publishing restartable ([#146](https://github.com/equinor/videx-linear-algebra/issues/146)) ([449ec83](https://github.com/equinor/videx-linear-algebra/commit/449ec83bd14432408415461962cdf07a39d86891))
+* **taskless:** fix CommonJs file name and make esm default ([#152](https://github.com/equinor/videx-linear-algebra/issues/152)) ([70c1f3b](https://github.com/equinor/videx-linear-algebra/commit/70c1f3bbebf6d0a1f41dd19aad4be8535a6fad44))
+
 ## [1.0.30](https://github.com/equinor/videx-linear-algebra/compare/v1.0.29...v1.0.30) (2026-09-15)
 
 
