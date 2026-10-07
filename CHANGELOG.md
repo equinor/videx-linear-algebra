@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.32](https://github.com/equinor/videx-linear-algebra/compare/v1.0.31...v1.0.32) (2026-10-07)
+
+
+### Bug Fixes
+
+* **npm:** bump brace-expansion from 5.0.9 to 5.0.12 ([#157](https://github.com/equinor/videx-linear-algebra/issues/157)) ([e0d298d](https://github.com/equinor/videx-linear-algebra/commit/e0d298dadf5da1940539eaebe3cbfdbbe6970010))
+* **npm:** bump markdown-it from 14.2.0 to 14.3.2 ([#154](https://github.com/equinor/videx-linear-algebra/issues/154)) ([430cd60](https://github.com/equinor/videx-linear-algebra/commit/430cd60d8619bf4e51333902960b07ed7546aca3))
+
 ## [1.0.31](https://github.com/equinor/videx-linear-algebra/compare/v1.0.30...v1.0.31) (2026-09-24)
 
 
