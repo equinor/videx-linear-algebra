@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.33](https://github.com/equinor/videx-linear-algebra/compare/v1.0.32...v1.0.33) (2026-10-08)
+
+
+### Bug Fixes
+
+* **npm:** bump source-map-js from 1.2.1 to 1.2.2 ([#158](https://github.com/equinor/videx-linear-algebra/issues/158)) ([c54dd73](https://github.com/equinor/videx-linear-algebra/commit/c54dd733ec4335215fa2a6ee9b2d07e084ed7288))
+
 ## [1.0.32](https://github.com/equinor/videx-linear-algebra/compare/v1.0.31...v1.0.32) (2026-10-07)
 
 
