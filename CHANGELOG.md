@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.34](https://github.com/equinor/videx-linear-algebra/compare/v1.0.33...v1.0.34) (2026-10-21)
+
+
+### Bug Fixes
+
+* **npm:** bump markdown-it from 14.3.2 to 14.3.3 ([#163](https://github.com/equinor/videx-linear-algebra/issues/163)) ([03552a4](https://github.com/equinor/videx-linear-algebra/commit/03552a47c0687358f1e9c9cf290bb74b39c2146e))
+* **npm:** bump vite from 8.3.0 to 8.3.4 ([#161](https://github.com/equinor/videx-linear-algebra/issues/161)) ([5caa6f9](https://github.com/equinor/videx-linear-algebra/commit/5caa6f9f67953ea8e0f52fd961300a7d369d653e))
+
 ## [1.0.33](https://github.com/equinor/videx-linear-algebra/compare/v1.0.32...v1.0.33) (2026-10-08)
 
 
