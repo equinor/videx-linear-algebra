@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.35](https://github.com/equinor/videx-linear-algebra/compare/v1.0.34...v1.0.35) (2026-10-29)
+
+
+### Bug Fixes
+
+* **npm:** bump @vitest/mocker, @vitest/coverage-v8 and vitest ([#164](https://github.com/equinor/videx-linear-algebra/issues/164)) ([045aff7](https://github.com/equinor/videx-linear-algebra/commit/045aff7a836f1e8507a19b123ce319c617610afc))
+* **npm:** bump serialize-javascript from 7.0.5 to 7.1.4 ([#167](https://github.com/equinor/videx-linear-algebra/issues/167)) ([0d70547](https://github.com/equinor/videx-linear-algebra/commit/0d705474002eddc1af2485f26366bdd68bb20b01))
+
 ## [1.0.34](https://github.com/equinor/videx-linear-algebra/compare/v1.0.33...v1.0.34) (2026-10-21)
 
 
